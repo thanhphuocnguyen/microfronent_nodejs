@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from "react";
 import { mount } from "marketing/Marketing";
-
+console.log("trigger actions");
 const MarketingApp = () => {
   const ref = useRef(null);
   useEffect(() => {
