@@ -4,7 +4,7 @@ on:
     branches:
       - master
     paths:
-      - "with_tech_stacks/container/**"
+      - 'with_tech_stacks/container/**'
 defaults:
   run:
     working-directory: with_tech_stacks/container
