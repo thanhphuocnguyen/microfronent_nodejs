@@ -1,5 +1,5 @@
 import React, { useRef, useEffect } from "react";
-import { mount } from "marketing/Marketing";
+import { mount } from "auth/Auth";
 import { useHistory } from "react-router-dom";
 
 /**
@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
  *
  * @return {JSX.Element} A React component that renders a div element with a ref object.
  */
-const MarketingApp = () => {
+const AuthApp = () => {
   const ref = useRef(null);
   const history = useHistory();
   useEffect(() => {
@@ -21,8 +21,8 @@ const MarketingApp = () => {
       },
     });
     history.listen(onParentNavigate);
-  });
+  }, []);
 
   return <div ref={ref} />;
 };
-export default MarketingApp;
+export default AuthApp;
