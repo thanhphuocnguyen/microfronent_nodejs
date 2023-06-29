@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
  *
  * @return {JSX.Element} A React component that renders a div element with a ref object.
  */
-const AuthApp = () => {
+const AuthApp = ({ onSignIn }) => {
   const ref = useRef(null);
   const history = useHistory();
   useEffect(() => {
@@ -19,6 +19,7 @@ const AuthApp = () => {
           history.push(nextPathname);
         }
       },
+      onSignIn,
     });
     history.listen(onParentNavigate);
   }, []);

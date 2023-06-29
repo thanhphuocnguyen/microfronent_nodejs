@@ -12,14 +12,14 @@ import { createMemoryHistory, createBrowserHistory } from "history";
  * @param {Function} cb.onNavigate - A function to call on navigation with the next pathname.
  * @return {Object} An object containing the onParentNavigate function to push a new pathname to history.
  */
-const mount = (el, { onNavigate, defaultHistory, initialPath }) => {
+const mount = (el, { onNavigate, defaultHistory, initialPath, onSignIn }) => {
   const history =
     defaultHistory ||
     createMemoryHistory({
       initialEntries: [initialPath],
     });
   if (onNavigate) history.listen(onNavigate);
-  ReactDOM.render(<App history={history} />, el);
+  ReactDOM.render(<App onSignIn={onSignIn} history={history} />, el);
 
   return {
     onParentNavigate({ pathname: nextPathname }) {
