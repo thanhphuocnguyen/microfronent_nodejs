@@ -6,22 +6,22 @@ const packageJson = require("../package.json");
 // const domain = process.env.PRODUCTION_DOMAIN;
 
 const prodConfig = {
-  mode: "production",
-  output: {
-    filename: "[name].[contenthash].js",
-    publicPath: "/dashboard/latest/",
-  },
-  plugins: [
-    new ModuleFederationPlugin({
-      name: "dashboard",
-      filename: "remoteEntry.js",
-      exposes: {
-        "./Dashboard": "./src/bootstrap",
-      },
-      //   shared: ["react", "react-dom"],
-      shared: packageJson.dependencies,
-    }),
-  ],
+	mode: "production",
+	output: {
+		filename: "[name].[contenthash].js",
+		publicPath: "/dashboard/latest/",
+	},
+	plugins: [
+		new ModuleFederationPlugin({
+			name: "dashboard",
+			filename: "remoteEntry.js",
+			exposes: {
+				"./DashBoard": "./src/bootstrap",
+			},
+			//   shared: ["react", "react-dom"],
+			shared: packageJson.dependencies,
+		}),
+	],
 };
 
 module.exports = merge(commonConfig, prodConfig);
