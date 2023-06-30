@@ -6,10 +6,14 @@ module.exports = {
       template: "./public/index.html",
     }),
   ],
+  entry: "./src/index.js",
+  resolve: {
+    extensions: [".js", ".jsx"],
+  },
   module: {
     rules: [
       {
-        test: /\.m?js$/,
+        test: /\.m?jsx$/,
         exclude: /node_modules/,
         use: {
           loader: "babel-loader",
